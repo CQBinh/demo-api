@@ -21,7 +21,11 @@ module V1
       	end
       end
 
-      desc "Get book by id"
+      desc "Get book by id",{
+        headers: {
+          "Access-Token" => { description: "Access-Token", required: true }
+        }
+      }
       get '/:id', rabl: "books/show" do
       	ActiveRecord::Base.transaction do
       		authenticate!
