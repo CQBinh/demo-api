@@ -1,5 +1,8 @@
 module V1
 	class BookAPI < Grape::API
+    before do
+      authenticate!
+    end
 		resource :books do
 
       desc "Add new book."
@@ -8,6 +11,7 @@ module V1
         requires :description, type: String
         requires :price, type: Integer
       end
+
       post "/add", rabl: "books/add" do
         ActiveRecord::Base.transaction do
           @book = Book.add(converted_params)
@@ -24,7 +28,6 @@ module V1
       desc "Get book by id"
       get '/:id', rabl: "books/show" do
       	ActiveRecord::Base.transaction do
-      		authenticate!
       		@book = Book.find(params[:id])
       	end
       end

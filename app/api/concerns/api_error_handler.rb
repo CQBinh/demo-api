@@ -7,46 +7,7 @@ module APIErrorHandler
       Rails.logger.error("Responding error (data='#{message}').")
       message.to_json
     end
-
-    # rescue_from ResourceNotFound do |e|
-    #   Rails.logger.error("Failed to process request (#{e.message}).")
-    #   Rails.logger.error("  backtrace:")
-    #   Rails.logger.error("    " + e.backtrace.join("\n    "))
-    #   error_response(
-    #     { 
-    #       message: 
-    #       { 
-    #         meta:{
-    #           status: :failed ,
-    #           code: 404,
-    #           messages: :not_found
-    #         },
-    #         data: nil
-    #       }, 
-    #       status: 404 
-    #     })
-    # end
-
-    # rescue_from BadRequest do |e|
-    #   Rails.logger.error("Failed to process request (#{e.message}).")
-    #   Rails.logger.error("  backtrace:")
-    #   Rails.logger.error("    " + e.backtrace.join("\n    "))
-    #   error_response(
-    #     { 
-    #       message: 
-    #       {
-    #         meta:{
-    #           status: :failed ,
-    #           code: 400,
-    #           messages: e.errors
-    #         },
-    #         data: nil
-    #       }, 
-    #       status: 400 
-    #     })
-    # end
     
-
     rescue_from Unauthorized do |e|
       Rails.logger.error("Failed to process request (#{e.message}).")
       Rails.logger.error("  backtrace:")
@@ -65,27 +26,6 @@ module APIErrorHandler
           status: 401 
         })
     end
-
-    # rescue_from ActiveRecord::RecordInvalid do |e|
-    #   e.record.errors.messages.each do |key, value|
-    #     e.record.errors.messages[key] = value[0]
-    #   end
-    #   Rails.logger.error("Failed to validate (#{e.message}).")
-    #   Rails.logger.error("  backtrace:")
-    #   Rails.logger.error("    " + e.backtrace.join("\n    "))
-    #   error_response(
-    #     { message: 
-    #       { 
-    #         meta:{
-    #           status: :failed ,
-    #           code: 400,
-    #           messages: e.record.errors.to_hash
-    #         },
-    #         data: nil
-    #       }, 
-    #       status: 400 
-    #     })
-    # end
 
     rescue_from ActiveRecord::RecordNotFound do |e|
       Rails.logger.error("Failed to validate (#{e.message}).")
