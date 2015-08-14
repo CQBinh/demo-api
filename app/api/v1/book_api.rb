@@ -9,6 +9,7 @@ module V1
         requires :price, type: Integer
       end
       post "/add", rabl: "books/add" do
+        authenticate!
         ActiveRecord::Base.transaction do
           @book = Book.add(converted_params)
         end
@@ -16,6 +17,7 @@ module V1
 
       desc "List all books"
       get "/all", rabl: "books/all" do
+        authenticate!
       	ActiveRecord::Base.transaction do
       		@books = Book.all()
       	end
@@ -23,10 +25,14 @@ module V1
 
       desc "Get book by id"
       get '/:id', rabl: "books/show" do
+        authenticate!
       	ActiveRecord::Base.transaction do
-      		authenticate!
       		@book = Book.find(params[:id])
       	end
+      end
+
+      get '/' do
+          {foo: 'bar'}
       end
 
 		end
