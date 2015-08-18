@@ -1,28 +1,6 @@
-== README
+This is the `source code` for my posts about *Creating rails web service*:
+1. [Web API with rails and grape gem](http://blog.appconus.com/2015/08/14/web-api-with-rails-and-grape-gem/)
+2. [Unit test for grape on rails with airborne framework](http://blog.appconus.com/2015/08/14/unit-test-for-grape-on-rails-with-airborne-framework/)
+3. [Rails API’s documentation with Swagger](http://blog.appconus.com/2015/08/18/rails-apis-documentation-with-swagger/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Special thank to [@NhutVD](https://github.com/dongnhut) - Ruby leader - AsianTech inc.
