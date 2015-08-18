@@ -32,26 +32,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # API gems
-gem 'grape'
-gem 'grape-rabl'
+gem 'grape', '0.11.0'
+gem 'grape-entity'
+gem 'grape-rabl', '0.3.1'
 gem 'yajl-ruby', require: 'yajl'
 # Docs
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
 gem 'kramdown'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-contrib'
 
 group :development do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  # gem 'byebug'
-  # gem 'pry-rails'
-  # gem 'pry-byebug'
-
-  # # Access an IRB console on exception pages or by using <%= console %> in views
-  # gem 'web-console', '~> 2.0'
-
-  # # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  # gem 'spring'
-  
   gem 'rails-erd'
   gem 'pry-rails'
   gem 'pry-byebug'
@@ -60,13 +52,9 @@ group :development do
   gem 'quiet_assets'
   gem "factory_girl_rails", require: false
 
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 

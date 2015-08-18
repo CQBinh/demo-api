@@ -4,9 +4,9 @@ module V1
 
       desc "Add new book."
       params do
-        requires :title, type: String
+        requires :title, type: String, description: "The book's title"
         requires :description, type: String
-        requires :price, type: Integer
+        requires :price, type: Integer, description: "The book's price"
       end
       post "/add", rabl: "books/add" do
         ActiveRecord::Base.transaction do
@@ -14,21 +14,21 @@ module V1
         end
       end
 
-      desc "List all books"
+      desc "List all books",{
+        headers: {
+          "Access-Token" => { description: "Access-Token", required: true }
+        }
+      }
       get "/all", rabl: "books/all" do
+        authenticate!
       	ActiveRecord::Base.transaction do
       		@books = Book.all()
       	end
       end
 
-      desc "Get book by id",{
-        headers: {
-          "Access-Token" => { description: "Access-Token", required: true }
-        }
-      }
+      desc "Get book by id"
       get '/:id', rabl: "books/show" do
       	ActiveRecord::Base.transaction do
-      		authenticate!
       		@book = Book.find(params[:id])
       	end
       end
