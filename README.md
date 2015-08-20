@@ -1,0 +1,1 @@
+[![Coverage Status](https://coveralls.io/repos/CQBinh/demo-api/badge.png?branch=master&service=github)](https://coveralls.io/github/CQBinh/demo-api?branch=master)
