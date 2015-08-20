@@ -40,6 +40,7 @@ gem 'grape-swagger'
 gem 'grape-swagger-rails'
 # Unit test
 gem 'airborne'
+gem 'coveralls', require: false
 
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
